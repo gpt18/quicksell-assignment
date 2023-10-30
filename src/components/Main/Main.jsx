@@ -6,7 +6,11 @@ import './Main.css';
 import { priorityIconsSelector, priorityStringSelector, statusIconSlector, userIconSelector } from '../../utils/selector';
 import { getSingleUserData } from '../../utils/api';
 
-const Main = ({ tickets, grouped, grouping, sorting }) => {
+const Main = ({ tickets, groupedHeadings, grouping, sorting }) => {
+
+    if(grouping === "priority") {
+        groupedHeadings = groupedHeadings.slice().sort((a, b) => b-a);
+    }
 
     const [userdata, setUserdata] = React.useState({});
 
@@ -15,7 +19,7 @@ const Main = ({ tickets, grouped, grouping, sorting }) => {
         if (grouping === 'userId') {
             const fetchData = async () => {
                 const userData = {};
-                await Promise.all(grouped.map(async (userId) => {
+                await Promise.all(groupedHeadings.map(async (userId) => {
                     const user = await getSingleUserData(userId);
                     userData[userId] = user;
                 }));
@@ -24,7 +28,8 @@ const Main = ({ tickets, grouped, grouping, sorting }) => {
 
             fetchData();
         }
-    }, [grouping, grouped]);
+    }, [grouping, groupedHeadings]);
+
 
 
     const groupedTickets = {};
@@ -36,6 +41,8 @@ const Main = ({ tickets, grouped, grouping, sorting }) => {
         groupedTickets[groupByValue].push(ticket);
     });
 
+
+
     Object.keys(groupedTickets).forEach((group) => {
         if (sorting === 'priority') {
             groupedTickets[group].sort((a, b) => b.priority - a.priority);
@@ -46,7 +53,7 @@ const Main = ({ tickets, grouped, grouping, sorting }) => {
 
     return (
         <div className="main">
-            {grouped.map((group, idx) => (
+            {groupedHeadings.map((group, idx) => (
                 <div className="section" key={idx}>
                     <div className="heading">
                         <div className="left-items">

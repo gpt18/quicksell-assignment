@@ -2,7 +2,7 @@ import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import {
     MdSignalCellular1Bar,
     MdSignalCellular4Bar,
-    MdSignalCellular2Bar,
+    MdSignalCellular3Bar,
     MdWarning
 } from 'react-icons/md'
 
@@ -13,9 +13,9 @@ import { BsCheckCircleFill } from 'react-icons/bs'
 
 export const priorityIconsSelector = {
     4: <MdWarning style={{ color: 'red' }} />,
-    3: <MdSignalCellular4Bar style={{ color: 'orange' }} />,
-    2: <MdSignalCellular2Bar style={{ color: 'blue' }} />,
-    1: <MdSignalCellular1Bar style={{ color: 'green' }} />,
+    3: <MdSignalCellular4Bar style={{ color: 'green' }} />,
+    2: <MdSignalCellular3Bar style={{ color: 'blue' }} />,
+    1: <MdSignalCellular1Bar style={{ color: 'orange' }} />,
     0: <HiOutlineDotsHorizontal style={{ color: 'gray' }} />,
 }
 

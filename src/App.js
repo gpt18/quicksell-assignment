@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Main
         tickets={tickets}
-        grouped={uniqueGroups}
+        groupedHeadings={uniqueGroups}
         grouping={grouping}
         sorting={ordering}
       />

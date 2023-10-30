@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, createContext, useMemo } from 'react';
-import { getCurrentGroupValue, getCurrentOrderValue } from '../components/Header/Action';
+import { getCurrentGroupValue, getCurrentOrderValue } from '../utils/offlineData';
 
 const initialState = {
     grouping: getCurrentGroupValue(),
