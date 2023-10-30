@@ -33,16 +33,16 @@ const Card = ({ id, title, userid, tag, priority, status }) => {
         <div className="card">
             <div className="row">
                 <div className="card-id">{id}</div>
-                {grouping !== "userId" ? userIconSelector(userData) 
-                :
-                <div className="tag">
+                {grouping !== "userId" ? userIconSelector(userData)
+                    :
+                    <div className="tag">
                         {statusIconSlector[status]}
                     </div>
                 }
-                
+
             </div>
             <div className="title">
-            
+
                 {title}
             </div>
             <div className="tags">
@@ -68,32 +68,3 @@ const Card = ({ id, title, userid, tag, priority, status }) => {
 }
 
 export default Card;
-
-
-// import { PriorityIconMap } from "./GroupIcons";
-// import UserAvatar from "./UserAvatar";
-
-// const Card = ({ title, id, user, tag, priority, grouping }) => {
-//   return (
-//     <div className="card">
-//       <div className="row">
-//         <div className="card-id">{id}</div>
-//         {grouping !== "User" && <UserAvatar user={user} />}
-//       </div>
-//       <div className="title">{title}</div>
-//       <div className="tags">
-//         {grouping !== "Priority" && (
-//           <div className="tag">{PriorityIconMap[priority]} </div>
-//         )}
-//         {tag.map((content, idx) => (
-//           <div key={idx} className="tag">
-//             <div className="circle" />
-//             {content}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Card;

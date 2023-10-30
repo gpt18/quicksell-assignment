@@ -8,8 +8,8 @@ import { getSingleUserData } from '../../utils/api';
 
 const Main = ({ tickets, groupedHeadings, grouping, sorting }) => {
 
-    if(grouping === "priority") {
-        groupedHeadings = groupedHeadings.slice().sort((a, b) => b-a);
+    if (grouping === "priority") {
+        groupedHeadings = groupedHeadings.slice().sort((a, b) => b - a);
     }
 
     const [userdata, setUserdata] = React.useState({});

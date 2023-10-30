@@ -12,15 +12,15 @@ export default function Header() {
   const handleOptionChange = (event, change) => {
     if (change === 'group') {
       const selectedGroup = event.target.value;
-      dispatch(setGrouping(selectedGroup)); // Dispatch the action with the selected value
+      dispatch(setGrouping(selectedGroup)); 
       localStorage.setItem("group", selectedGroup);
     }
     if (change === 'order') {
       const selectedOrder = event.target.value;
-      dispatch(setOrdering(selectedOrder)); // Dispatch the action with the selected value
+      dispatch(setOrdering(selectedOrder)); 
       localStorage.setItem("order", selectedOrder);
     }
-    setViewDropdown(false); // Close the dropdown after selection
+    setViewDropdown(false); 
   };
 
   return (
@@ -40,7 +40,7 @@ export default function Header() {
                 name="group"
                 id="group"
                 className="select txt"
-                value={grouping} // Use the actual grouping value from state
+                value={grouping} 
                 onChange={(event) => handleOptionChange(event, 'group')}
               >
                 <option value="status">Status</option>
@@ -54,7 +54,7 @@ export default function Header() {
                 name="order"
                 id="order"
                 className="select txt"
-                value={ordering} // Use the actual ordering value from state
+                value={ordering} 
                 onChange={(event) => handleOptionChange(event, 'order')}
               >
                 <option value="priority">Priority</option>

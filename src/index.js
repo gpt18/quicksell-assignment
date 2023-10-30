@@ -8,9 +8,9 @@ import reducer from './state-management/reducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
+
     <StateProvider reducer={reducer} >
-        <App/>
+        <App />
     </StateProvider>
 );
 
