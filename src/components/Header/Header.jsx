@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { LiaSlidersHSolid } from "react-icons/lia";
 import { PiCaretDownBold } from "react-icons/pi";
 import "./Header.css";
-import { getCurrentGroupValue, getCurrentOrderValue } from "./Action";
+import { setGrouping, setOrdering } from "../../state-management/actions";
+import { useStateValue } from "../../state-management/useStateReducer";
 
 export default function Header() {
+  const [{ grouping, ordering }, dispatch] = useStateValue();
   const [viewDropdown, setViewDropdown] = useState(false);
-  const [currentGroup, setCurrentGroup] = useState(getCurrentGroupValue());
-  const [currentOrder, setCurrentOrder] = useState(getCurrentOrderValue());
 
   const handleOptionChange = (event, change) => {
     if (change === 'group') {
-      setCurrentGroup(event.target.value);
-      setViewDropdown(!viewDropdown);
-      localStorage.setItem("group", event.target.value);
-    } 
-    if (change === 'order') {
-      setCurrentOrder(event.target.value);
-      setViewDropdown(!viewDropdown);
-      localStorage.setItem("order", event.target.value);
+      const selectedGroup = event.target.value;
+      dispatch(setGrouping(selectedGroup)); // Dispatch the action with the selected value
+      localStorage.setItem("group", selectedGroup);
     }
+    if (change === 'order') {
+      const selectedOrder = event.target.value;
+      dispatch(setOrdering(selectedOrder)); // Dispatch the action with the selected value
+      localStorage.setItem("order", selectedOrder);
+    }
+    setViewDropdown(false); // Close the dropdown after selection
   };
 
   return (
@@ -39,11 +40,11 @@ export default function Header() {
                 name="group"
                 id="group"
                 className="select txt"
-                value={currentGroup}
+                value={grouping} // Use the actual grouping value from state
                 onChange={(event) => handleOptionChange(event, 'group')}
               >
                 <option value="status">Status</option>
-                <option value="user">User</option>
+                <option value="userId">User</option>
                 <option value="priority">Priority</option>
               </select>
             </div>
@@ -53,7 +54,7 @@ export default function Header() {
                 name="order"
                 id="order"
                 className="select txt"
-                value={currentOrder}
+                value={ordering} // Use the actual ordering value from state
                 onChange={(event) => handleOptionChange(event, 'order')}
               >
                 <option value="priority">Priority</option>

@@ -1,5 +1,5 @@
 .card {
-    height: 105px;
+    /* height: 105px; */
     padding: 10px 14px;
     background-color: white;
     display: flex;
@@ -29,12 +29,13 @@
     flex-grow: 1;
     max-width: 100%;
     font-size: 16px;
-    height: 41px;
+    /* height: 41px; */
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
+    
   }
   
   .row {
@@ -47,6 +48,7 @@
   
   .tags {
     display: flex;
+    margin-top: 18px;
   }
   
   .tag {
