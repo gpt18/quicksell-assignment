@@ -7,11 +7,7 @@ import { useStateValue } from '../../state-management/useStateReducer'
 
 const Card = ({ id, title, userid, tag, priority, status }) => {
 
-    console.log(status)
-
     const [{ grouping }] = useStateValue();
-
-    console.log("groupinng: " + grouping);
 
     const [userData, setUserData] = useState();
 
